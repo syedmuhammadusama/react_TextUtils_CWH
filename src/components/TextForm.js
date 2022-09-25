@@ -15,6 +15,15 @@ export default function TextForm(props) {
         setText('');
     }
 
+    function speaktext() {
+        var speech = new SpeechSynthesisUtterance();
+        speech.text = text
+        speech.volume = 12;
+        speech.rate = 1;
+        speech.pitch = 1;
+        window.speechSynthesis.speak(speech);
+    }
+
     const replaceCLick = () => {
         let stringToReplace = prompt('Enter text to replace');
         let stringToAdd = prompt('Add replace string');
@@ -46,6 +55,9 @@ export default function TextForm(props) {
                 </button>
                 <button className="btn btn-primary mx-1" onClick={replaceCLick}>
                     Replace word
+                </button>
+                <button className="btn btn-primary mx-1" onClick={speaktext}>
+                    Speak text
                 </button>
             </div>
 
