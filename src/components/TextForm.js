@@ -35,9 +35,16 @@ export default function TextForm(props) {
     
     const handleOnChange = (event) => {
         setText(event.target.value);
+        let textLength = text.split(' ').length;
+        let textArray = text.split(' ');
+        if(textArray.includes(" ")){
+            textLength = -1;
+        }
+        setTextLength(textLength);
     }
 
     const [text, setText] = useState('');
+    const [textLength, setTextLength] = useState(0);
     
     return (
         <>
@@ -64,8 +71,8 @@ export default function TextForm(props) {
             </div>
 
             <div className="container my-3" style={{color : props.mode === 'dark' ? 'white' : 'black'}}>
-                <h2>your text summary</h2>
-                <p>{text.split(' ').length} words and {text.length} characters</p>
+                <h2>Your text summary</h2>
+                <p>{textLength} words and {text.length} characters</p>
                 <p>{0.008 * text.split(' ').length} minutes to read</p>
                 
                 <h2>Preview</h2>

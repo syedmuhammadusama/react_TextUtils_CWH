@@ -19,6 +19,16 @@ function App() {
             showAlert('Light Mode has been enabled', 'success')
         }
     }
+    
+    const toggleModeCustom = () => {
+        if(mode === 'light'){
+            setMode('dark');
+            document.body.style.backgroundColor = document.getElementById("color").value;
+        }else{
+            setMode('light');
+            document.body.style.backgroundColor = 'white';
+        }
+    }
 
     const [alert, setAlert] = useState(null);
 
@@ -34,7 +44,7 @@ function App() {
 
     return (
         <>
-            <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode}/>
+            <Navbar title="TextUtils" mode={mode} toggleMode={toggleMode} toggleModeCustom={toggleModeCustom}/>
             <Alert alert={alert} />
             <div className="container my-3">
                 <TextForm heading="Enter the text to analyze" showAlert={showAlert} mode={mode}/>
