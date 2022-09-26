@@ -12,11 +12,13 @@ function App() {
         if(mode === 'light'){
             setMode('dark');
             document.body.style.backgroundColor = '#2b2046';
-            showAlert('Dark Mode has been enabled', 'success')
+            showAlert('Dark Mode has been enabled', 'success');
+            document.title = 'TextUtils - Dark Mode';
         }else{
             setMode('light');
             document.body.style.backgroundColor = 'white';
-            showAlert('Light Mode has been enabled', 'success')
+            showAlert('Light Mode has been enabled', 'success');
+            document.title = 'TextUtils - Light Mode';
         }
     }
     
